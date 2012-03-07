@@ -199,39 +199,39 @@ addProperty('stripColors', function () {
 function zalgo(text, options) {
   var soul = {
     "up" : [
-      '̍', '̎', '̄', '̅',
-      '̿', '̑', '̆', '̐',
-      '͒', '͗', '͑', '̇',
-      '̈', '̊', '͂', '̓',
-      '̈', '͊', '͋', '͌',
-      '̃', '̂', '̌', '͐',
-      '̀', '́', '̋', '̏',
-      '̒', '̓', '̔', '̽',
-      '̉', 'ͣ', 'ͤ', 'ͥ',
-      'ͦ', 'ͧ', 'ͨ', 'ͩ',
-      'ͪ', 'ͫ', 'ͬ', 'ͭ',
-      'ͮ', 'ͯ', '̾', '͛',
-      '͆', '̚'
+      '?', '"', '¯', '¯',
+      '?', '?', '?', '?',
+      '?', '?', '?', '?',
+      '¨', '°', '?', '?',
+      '¨', '?', '?', '?',
+      '~', '^', '?', '?',
+      '`', '´', '?', '?',
+      '?', '?', '?', '?',
+      '?', '?', '?', '?',
+      '?', '?', '?', '?',
+      '?', '?', '?', '?',
+      '?', '?', '?', '?',
+      '?', '?'
     ],
     "down" : [
-      '̖', '̗', '̘', '̙',
-      '̜', '̝', '̞', '̟',
-      '̠', '̤', '̥', '̦',
-      '̩', '̪', '̫', '̬',
-      '̭', '̮', '̯', '̰',
-      '̱', '̲', '̳', '̹',
-      '̺', '̻', '̼', 'ͅ',
-      '͇', '͈', '͉', '͍',
-      '͎', '͓', '͔', '͕',
-      '͖', '͙', '͚', '̣'
+      '?', '?', '?', '?',
+      '?', '?', '?', '?',
+      '?', '?', '?', '?',
+      '?', '?', '?', '?',
+      '?', '?', '?', '?',
+      '_', '_', '?', '?',
+      '?', '?', '?', '?',
+      '?', '?', '?', '?',
+      '?', '?', '?', '?',
+      '?', '?', '?', '?'
     ],
     "mid" : [
-      '̕', '̛', '̀', '́',
-      '͘', '̡', '̢', '̧',
-      '̨', '̴', '̵', '̶',
-      '͜', '͝', '͞',
-      '͟', '͠', '͢', '̸',
-      '̷', '͡', ' ҉'
+      '?', '?', '`', '´',
+      '?', '?', '?', '¸',
+      '?', '?', '?', '?',
+      '?', '?', '?',
+      '?', '?', '?', '?',
+      '?', '?', ' ?'
     ]
   },
   all = [].concat(soul.up, soul.down, soul.mid),
@@ -302,3 +302,33 @@ function zalgo(text, options) {
 addProperty('zalgo', function () {
   return zalgo(this);
 });
+
+if (exports.mode === 'console') {
+  modules.exports.showwarning = function() {
+		console.log('[Warning]'.yellow.bold + ':', arguments.join(' '));
+	}
+
+	modules.exports.showerror = function() {
+		console.log('[Error]'.red.bold + ':', arguments.join(' '));
+	}
+
+	modules.exports.showfatalerror = function() {
+		console.log('[Fatal Error]'.red.bold + ':', arguments.join(' '));
+	}
+
+	modules.exports.shownotice = function() {
+		console.log('[Notice]'.white.bold + ':', arguments.join(' '));
+	}
+
+	modules.exports.showinfo = function() {
+		console.log('[Info]'.white + ':', arguments.join(' '));
+	}
+
+	modules.exports.showdebug = function() {
+		console.log('[Notice]'.cyan.bold + ':', arguments.join(' '));
+	}
+
+	modules.exports.showsql = function() {
+		console.log('[SQL]'.magenta.bold + ':', arguments.join(' '));
+	}
+}
